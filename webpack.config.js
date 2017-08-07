@@ -1,6 +1,9 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 	template: './client/index.html',
 	filename: 'index.html',
@@ -22,5 +25,15 @@ module.exports = {
 			{ test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
 		],
 	},
-	plugins: [HtmlWebpackPluginConfig]
+	plugins: [
+		new CopyWebpackPlugin([{
+			from: 'css/index.css',
+			to: 'css/index.css'
+		}]),
+		HtmlWebpackPluginConfig,
+		new HtmlWebpackIncludeAssetsPlugin({
+			assets: ['css/index.css'],
+			append: true
+		})
+	]
 };
