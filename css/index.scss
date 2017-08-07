@@ -1,0 +1,195 @@
+body, html, #root, #game {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	background: green;
+	font-family: 'Bowlby One SC', cursive;
+	color: #201c16;
+}
+
+#names-container {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	text-align: right;
+}
+
+#quarters {
+	position: absolute;
+	right: 25px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	.quarter {
+		background: #a3a3a3;
+		cursor: pointer;
+		width: 100px;
+		height: 25px;
+		border: 2px solid black;
+
+		&:nth-child(2n) {
+			margin-left: 15px;
+		}
+	}
+}
+
+#slot-machine-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+#slot-machine {
+	position: relative;
+	height: 500px;
+	width: 600px;
+	background: #e81c24;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 5px 5px 0 0;
+	border: 1px solid black;
+
+	#coin-drop {
+		position: absolute;
+		width: 100px;
+		height: 56px;
+		background: grey;
+		top: -11px;
+		right: 2px;
+		border: 1px solid black;
+		border-radius: 5px;
+
+		&:after {
+			content: "25\00A2";
+			width: 93%;
+			height: 75%;
+			border: 1px solid black;
+			border-top: 0px;
+			border-radius: 0px 0px 45px 45px;
+			display: block;
+			margin-left: 3%;
+			text-align: center;
+			color: #bfb8b8;
+			line-height: 2;
+		}
+	}
+
+	#handle-ball {
+		background: #e81c24;
+		z-index: 9999;
+		width: 85px;
+		height: 85px;
+		border-radius: 100%;
+		position: absolute;
+		right: -86px;
+		top: 70px;
+		cursor: pointer;
+		background: radial-gradient(circle at 25px 25px, #e81c24, #000);
+	}
+
+	.clicked {
+		transition: all .3s ease-in-out;
+		transform: scale(1.5);
+	}
+
+	.released {
+		transition: all .3s ease-in-out;
+		transform: scale(1.0);
+	}
+
+	#handle {
+		background: #7b7c80;
+		width: 35px;
+		height: 195px;
+		position: absolute;
+		right: -59.5px;
+		top: 120px;
+		border: 1px solid;
+	}
+
+	#handle-attachment {
+		background: #7b7c80;
+		width: 85px;
+		height: 125px;
+		position: absolute;
+		right: -87px;
+		bottom: 90px;
+		border: 1px solid black;
+		border-radius: 0 5px 5px 0;
+	}
+
+	#real-container {
+		margin-top: 10px;
+		width: 100%;
+		height: 45%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.reel {
+			height: 100%;
+			width: 25%;
+			background: white;
+			border: 1px solid black;
+			display: flex;
+			align-items: center;
+			position: relative;
+			border-radius: 5px;
+
+			.trump {
+				width: 66px;
+			}
+
+			hr {
+				position: absolute;
+				width: 100%;
+				top: 46%;
+				height: 1px;
+				background-color: #333;
+				border: none;
+			}
+
+			.name {
+				width: 100%;
+				font-size: 1.2em;
+				font-weight: bolder;
+				display: inline-block;
+				text-align: center;
+			}
+		}
+	}
+
+	#bottom-panel {
+		width: 90%;
+		height: 25%;
+		background: grey;
+		border: 1px solid black;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		#restart {
+			cursor: pointer;
+			border: 2px solid black;
+			padding: 7px;
+			background: lightgrey;
+			border-radius: 4px;
+		}
+	}
+}
+
+#base {
+	width: 600px;
+	height: 65px;
+	background: black;
+	border: 1px solid black;
+}
